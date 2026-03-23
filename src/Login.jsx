@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const containerRef = useRef(null);
   const [credentials, setCredentials] = useState({ username: "", password: "" });
@@ -29,7 +29,7 @@ const Login = () => {
       "-=0.8"
     );
   }, []);
-
+ const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     setIsProcessing(true);
@@ -45,7 +45,8 @@ const Login = () => {
           duration: 1,
           onComplete: () => {
             localStorage.setItem("isAdmin", "true");
-            window.location.href = "/admin";
+          
+navigate("/admin");
           }
         });
       } else {
