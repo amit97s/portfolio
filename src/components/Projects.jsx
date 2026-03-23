@@ -86,7 +86,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:9998/api/v1/get-projects");
+    const res = await axios.get("https://portfoliobackend-3-09hi.onrender.com/api/v1/get-projects");
       const data = res?.data?.projects || res?.data?.data || res.data;
       setProjects(Array.isArray(data) ? data : []);
     } catch (error) {

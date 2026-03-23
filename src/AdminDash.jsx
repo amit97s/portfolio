@@ -60,7 +60,7 @@ const AdminDash = () => {
   // 🔥 1. FETCH DATA (GET REQUEST)
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:9998/api/v1/get-projects");
+      const res = await axios.get("https://portfoliobackend-3-09hi.onrender.com/api/v1/get-projects");
       setProjects(res?.data?.data || res.data); 
     } catch (error) {
       console.error("Fetch Error:", error);
@@ -73,18 +73,7 @@ const AdminDash = () => {
     fetchProjects(); // Initial fetch
   }, []);
 
-  // 🔥 2. DELETE PROJECT (WIPE)
-  const deleteProject = async (id) => {
-    if(window.confirm("ARE YOU SURE YOU WANT TO WIPE THIS DATA?")) {
-        try {
-            await axios.delete(`http://localhost:9998/api/v1/project/${id}`);
-            alert("Entry Wiped Successfully.");
-            fetchProjects(); // Refresh list after delete
-        } catch (error) {
-            console.error("Delete Error:", error);
-        }
-    }
-  };
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -101,7 +90,7 @@ const AdminDash = () => {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:9998/api/v1/project", projectData);
+      await axios.post("https://portfoliobackend-3-09hi.onrender.com/api/v1/project", projectData);
       alert("Project added successfully ✅");
       setProjectData({ projectNumber: "", projectHeading: "", projectUrl: "", projectDescription: "", projectPhotos: "" });
       setSelectedImage(null);
