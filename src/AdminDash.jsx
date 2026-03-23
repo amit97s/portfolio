@@ -154,7 +154,6 @@ const AdminDash = () => {
                 <div className="flex gap-6 opacity-0 group-hover:opacity-100 transition-all uppercase text-[9px] font-black tracking-widest">
                   <button className="hover:text-red-600">Edit</button>
                   <button 
-                    onClick={() => deleteProject(project._id)} 
                     className="text-red-600/40 hover:text-red-600"
                   >Wipe</button>
                 </div>
